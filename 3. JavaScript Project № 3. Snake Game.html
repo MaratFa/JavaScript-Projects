@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Snake!</title>
+	<title>Snake!</title>
 </head>
 <body>    
-    <canvas id="canvas" width="500" height="500"></canvas>
-    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
-    <script>     
+	<canvas id="canvas" width="500" height="500"></canvas>
+	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+        <script>     
 
-        // Set up the canvas
+	// Set up the canvas
         let canvas = document.getElementById("canvas");
         let ctx = canvas.getContext("2d");
 
@@ -26,7 +26,7 @@
 
         // Draw the border
         let drawBorder = function () {
-            ctx.fillStyle = "Gray";
+	    ctx.fillStyle = "Gray";
             ctx.fillRect(0, 0, width, blockSize);
             ctx.fillRect(0, height - blockSize, width, blockSize);
             ctx.fillRect(0, 0, blockSize, height);
@@ -35,7 +35,7 @@
 
         // Draw the score in the top-left corner
         let drawScore = function () {
-            ctx.font = "20px Courier";
+	    ctx.font = "20px Courier";
             ctx.fillStyle = "Black";
             ctx.textAlign = "left";
             ctx.textBaseline = "top";
@@ -44,7 +44,7 @@
 
         // Clear the interval and display Game Over text
         let gameOver = function () {
-            gameContinues = false;			
+	    gameContinues = false;			
             ctx.font = "60px Courier";
             ctx.fillStyle = "Black";
             ctx.textAlign = "center";
@@ -54,12 +54,12 @@
 
         // Draw a circle
         let circle = function (x, y, radius, fillCircle) {
-            ctx.beginPath();
+	    ctx.beginPath();
             ctx.arc(x, y, radius, 0, Math.PI * 2, false);
             if (fillCircle) {
-                ctx.fill();
+	        ctx.fill();
             } else {
-                ctx.stroke();
+               	ctx.stroke();
             }
         };
 
@@ -113,8 +113,7 @@
             }
         };
 
-        /* Create a new head and add it to the beginning of the 
-           snake to move the snake in its current direction */
+        /* Create a new head and add it to the beginning of the snake to move the snake in its current direction */
         Snake.prototype.move = function () {
             let head = this.segments[0];
             let newHead;
@@ -135,7 +134,7 @@
             this.segments.unshift(newHead);
             if (newHead.equal(apple.position)) {
                 score++;
-				animationTime -= 5;
+	    	animationTime -= 5;
                 apple.move();				
             } else {
                 this.segments.pop();
@@ -185,17 +184,17 @@
         // Move the apple to a new random location other than the snake's location.
         Apple.prototype.move = function () {
             j = 0;
-			let randomCol = Math.floor(Math.random() * (widthInBlocks - 2)) + 1;
-			let randomRow = Math.floor(Math.random() * (heightInBlocks - 2)) + 1;  
-			newRandomLocationOfApple = new Block(randomCol, randomRow);
-			while (j < snake.segments.length) {
-				if (snake.segments[j].equal(newRandomLocationOfApple)) {
-					this.move();
-				} else {
-					j++;
-				}
-			}
-			this.position = newRandomLocationOfApple;          
+	    let randomCol = Math.floor(Math.random() * (widthInBlocks - 2)) + 1;
+	    let randomRow = Math.floor(Math.random() * (heightInBlocks - 2)) + 1;  
+	    newRandomLocationOfApple = new Block(randomCol, randomRow);
+	    while (j < snake.segments.length) {
+		if (snake.segments[j].equal(newRandomLocationOfApple)) {
+		    this.move();
+		} else {
+		    j++;
+		}
+	    }
+	    this.position = newRandomLocationOfApple;          
         };	 
 
         // Create the snake and apple objects     
@@ -204,19 +203,19 @@
 
         // Pass an animation function to setTimeout 
         let animationTime = 100;
-		let gameContinues = true;
-		let gameLoop = function () {
-			ctx.clearRect(0, 0, width, height);
-			drawScore();
-			snake.move();
-			snake.draw();
-			apple.draw();
-			drawBorder();
-			if (gameContinues) {				
-				setTimeout(gameLoop, animationTime);
-			}
-		}
-		gameLoop();		 
+	let gameContinues = true;
+	let gameLoop = function () {
+	    ctx.clearRect(0, 0, width, height);
+	    drawScore();
+	    snake.move();
+	    snake.draw();
+	    apple.draw();
+	    drawBorder();
+	    if (gameContinues) {				
+	        setTimeout(gameLoop, animationTime);
+            }
+	}
+	gameLoop();		 
 			 
         // Convert keycodes to directions  
         let directions = {
