@@ -1,12 +1,9 @@
-<!-- HTML starts here -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr"> 
 <head>
 	<meta charset="utf-8">
 	<title>Simple Calculator using HTML, CSS and JavaScript</title>
 	<style>	
-	
-     	/* CSS starts here */
 		h1 {
 			font-weight: 600;
 			margin: 0;
@@ -55,8 +52,6 @@
 		input:active[type=button] {
 			background: #12be2c;
 		}
-
-	/* HTML continues here */
     </style>
 </head> 
 <body>
@@ -67,9 +62,9 @@
 
 		<!-- The first row of cells in the table - The calculator display and the "C" button --> 
 		<tr>
-
+			
 			<!-- Calculator display -->
-		    <td colspan="3"><input class="display-box" type="text" id="result" disabled /></td>	
+		        <td colspan="3"><input class="display-box" type="text" id="result" disabled /></td>	
 
 			<!-- 'C' button -->
 			<!-- "clearScreen()" function clears calculator screen -->
@@ -121,9 +116,7 @@
 		</tr>
 	</table>
 	<script>
-	
-		/* JavaScript starts here */	
-	
+		
 		/* This function clears the calculator screen */
 		function clearScreen() {                             
 			document.getElementById("result").value = "";
@@ -140,8 +133,6 @@
 			let y = eval(x);
 			document.getElementById("result").value = y;
 		}
-
-	/* HTML continues here */
 	</script> 
 </body> 
 </html>
