@@ -48,6 +48,7 @@ ul li.checked::before {
   width: 7px;
 }
 
+
 .close {
     position: absolute;
     right: 0;
